@@ -16,6 +16,22 @@ router.get('/', async (req, res, next) => {
     }
   })
 
+
+  router.get('/:userId', [], async(req, res, next)=> {  
+    try{
+      const id = req.params.userId
+      const user = await User.findOne({_id : id}) 
+      if(user){
+        res.json(user)
+      }else{
+        res.status(404).send({"error" : MSGS.USER404})
+      }
+    }catch(err){
+      console.error(err.message)
+      res.status(500).send({"error" : MSGS.GENERIC_ERROR})
+    }
+  })
+
   
   router.post('/',[
     check('name').not().isEmpty(),
