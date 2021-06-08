@@ -2,6 +2,7 @@ const express = require('express')
 const User = require('../../models/user')
 const { check, validationResult } = require('express-validator')
 const router = express.Router()
+const MSGS = require('../../messages')
 
 
 
@@ -11,11 +12,11 @@ router.get('/', async (req, res, next) => {
       res.json(user)
     } catch (err) {
       console.error(err.message)
-      res.status(500).send({ "error": "Server error" })
+      res.status(500).send({ "error": MSGS.GENERIC_ERROR })
     }
   })
 
-
+  
   router.post('/',[
     check('name').not().isEmpty(),
     check('email', 'email is not valid').isEmail(),
@@ -36,7 +37,7 @@ router.get('/', async (req, res, next) => {
       
     }catch(err){
       console.error(err.message)
-      res.status(500).send({"error" : "Server error" })
+      res.status(500).send({"error" : MSGS.GENERIC_ERROR })
     }
   })
 
