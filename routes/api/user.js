@@ -57,4 +57,38 @@ router.get('/', async (req, res, next) => {
     }
   })
 
+
+  router.patch('/:id', async (req, res, next) => {  
+    try {
+      const id = req.params.id
+      const update = { $set: req.body } // operador $set de update de valor
+      const user = await User.findByIdAndUpdate(id, update, { new: true })
+      if (user) {
+        res.send(user)
+      } else {
+        res.status(404).send({ error: MSGS.USER404 })
+      }
+    }catch (err) {
+      console.error(err.message)
+      res.status(500).send({ "error": MSGS.GENERIC_ERROR })
+    }
+  });
+
+
+  router.delete('/:userId', async(req, res, next)=> {
+    try{
+      const id = req.params.userId   
+      const user = await User.findOneAndDelete({_id : id}) 
+      if (user){
+        res.json(user)
+      }else{
+        res.status(404).send({"error" : MSGS.USER404})
+      }
+    }catch(err){
+      console.error(err.message)
+      res.status(500).send({"error" : MSGS.GENERIC_ERROR})
+    }
+  })
+
+
   module.exports = router
