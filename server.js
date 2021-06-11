@@ -13,10 +13,10 @@ app.use(express.static(path.join(__dirname, '/public')))
 // rota home EJS
 const handlerIndex = (req, res, next) => {
     res.render('home', {
-        nome: 'HOME EJS'
+ //       nome: 'HOME EJS'
     })
 }
-app.get('/home', handlerIndex)
+app.get('/', handlerIndex)
 
 
 // Middleware

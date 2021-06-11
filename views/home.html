@@ -2,17 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <link rel="stylesheet" href="../views/style.css">
+    <title>Sorteio</title>
 
-    <body>
-        <h1 class="text-center title-1"> Cadastro de Usuariorio </h1>
-        <form action="/user" method="post">
-            <p>Username:<input type="text" name="username" /></p>
-            <p>Email:<input type="text" name="email" /></p>
-            <p><input type="submit" value="Salvar" /></p>
-        </form>
-    </body>
+</head>
+<body>
+    
+    <table id="table">
+        <tr>
+            <td>id</td>
+            <td>Name</td>
+            <td>email</td>
+        </tr>
+    </table>
+    <button id="button" onclick="sort()">Sortear agora</button>
+
+    <table id="sorteado">
+        <tr>
+            <td>nome do sorteado</td>
+        </tr>
+
+    <script src="./home.js"></script>
+</body>
 </html>
