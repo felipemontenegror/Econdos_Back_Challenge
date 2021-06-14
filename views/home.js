@@ -35,12 +35,25 @@ function main() {
         table.appendChild(line)
     })
 
+    document.querySelector('.btn').onclick = function(){
+    var randomico = Math.random()
+    var maximo = usuarios.length
+    const sort = Math.floor(randomico * maximo)
+
+    let x = usuarios[sort]
+    console.log(x)
+
+    }
+
 }
 
 main()
 
-function sort(element){  
-    const winner = element.random.innerHTML('sorteado')
-}
 
-console.log(sort)
+
+
+
+
+
+
+
