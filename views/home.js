@@ -37,11 +37,13 @@ function main() {
 
     document.querySelector('.btn').onclick = function(){
     var randomico = Math.random()
-    var maximo = usuarios.length
-    const sort = Math.floor(randomico * maximo)
+    var max = usuarios.length
+    const sort = Math.floor(randomico * max)
 
     let x = usuarios[sort]
-    console.log(x)
+
+    document.getElementById('resultadoName').innerHTML = x.name
+    document.getElementById('resultadoEmail').innerHTML = x.email
 
     }
 
