@@ -18,7 +18,6 @@ connectDB()
 //Rotas de cadastro 
 app.use('/user', require('./routes/api/user'))
 
-
 app.get('/', (req, res) => res.send('Server Hello'))
 
 
